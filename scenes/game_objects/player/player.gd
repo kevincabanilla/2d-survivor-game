@@ -8,10 +8,12 @@ var number_of_colliding_bodies = 0
 @onready var damage_interval_timer: Timer = $DamageIntervalTimer
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var abilities: Node = $Abilities
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health_component.health_changed.connect(on_health_changed)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	update_health_display()
 
 
@@ -40,8 +42,10 @@ func check_deal_damage() -> void:
 	damage_interval_timer.start()
 	#print(health_component.current_health)
 
+
 func update_health_display():
 	health_bar.value = health_component.get_heath_pecent()
+
 
 func _on_collision_area_2d_body_entered(body: Node2D) -> void:
 	number_of_colliding_bodies += 1
@@ -55,5 +59,14 @@ func _on_collision_area_2d_body_exited(body: Node2D) -> void:
 func _on_damage_interval_timer_timeout() -> void:
 	check_deal_damage()
 
+
 func on_health_changed() -> void:
 	update_health_display()
+
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
+	if not upgrade is WeaponAbility:
+		return
+	
+	var axe_ability: AxeAbilityController = (upgrade as WeaponAbility).ability_controller_scene.instantiate()
+	abilities.add_child(axe_ability)

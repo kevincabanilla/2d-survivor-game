@@ -5,7 +5,7 @@ const MAX_ROTATION: float = 2
 const MAX_RADIUS := 120
 const MAX_DURATION = 3
 
-@onready var hitbox_component := $HitboxComponent
+@onready var hitbox_component: HitboxComponent = $HitboxComponent
 
 var base_rotation := Vector2.RIGHT.rotated(randf_range(0, TAU))
 

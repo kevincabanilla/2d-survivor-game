@@ -1,4 +1,5 @@
 extends Node
+class_name  AxeAbilityController
 
 @export var axe_ability_scene: PackedScene
 @export var base_damage = 10

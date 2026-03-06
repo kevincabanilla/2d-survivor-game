@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponAbility" format=3 uid="uid://cypwb5g0mgr67"]
+
+[ext_resource type="PackedScene" uid="uid://l87akjrvtm1d" path="res://scenes/abilities/axe_ability_controller/axe_ability_controller.tscn" id="1_x7aok"]
+[ext_resource type="Script" uid="uid://cfp1hlw7ncs8d" path="res://resources/upgrades/weapon_ability.gd" id="2_5hwkl"]
+
+[resource]
+script = ExtResource("2_5hwkl")
+ability_controller_scene = ExtResource("1_x7aok")
+id = "axe_ability"
+name = "Axe"
+description = "Periodically sends out a spinning axe."

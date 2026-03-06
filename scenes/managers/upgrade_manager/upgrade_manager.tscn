@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://di3wguj6iva5" path="res://resources/upgrades/ability_upgrade.gd" id="2_3ib2r"]
 [ext_resource type="Resource" uid="uid://c5w3qfyipvan1" path="res://resources/upgrades/sword_rate.tres" id="3_ggors"]
 [ext_resource type="PackedScene" uid="uid://dgcxyn2rlhsxs" path="res://scenes/ui/upgrade_screen/upgrade_screen.tscn" id="4_ggors"]
+[ext_resource type="Resource" uid="uid://cypwb5g0mgr67" path="res://resources/upgrades/axe_ability.tres" id="4_mht1q"]
 
 [node name="UpgradeManager" type="Node" unique_id=1553397390]
 script = ExtResource("1_qeb3t")
-upgrade_pool = Array[ExtResource("2_3ib2r")]([ExtResource("3_ggors")])
+upgrade_pool = Array[ExtResource("2_3ib2r")]([ExtResource("3_ggors"), ExtResource("4_mht1q")])
 upgrade_screen_scene = ExtResource("4_ggors")
