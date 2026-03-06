@@ -1,7 +1,7 @@
 extends Node
 class_name ExperienceManager
 
-const TARGET_EXPERIENCE_GROWTH = 5
+const TARGET_EXPERIENCE_GROWTH = 3
 
 signal experience_updated(current_experience: float, target_experience: float)
 signal level_up(new_level: int)
