@@ -8,6 +8,8 @@ func _process(_delta: float) -> void:
 	var direction = get_direction_to_player()
 	velocity = direction * MAX_SPEED
 	move_and_slide()
+	if velocity.x != 0:
+		$SpriteVisual.scale.x = sign(velocity.x) # flip the sprite depending on the direction
 
 func get_direction_to_player():
 	var player_node = get_tree().get_first_node_in_group("player") as Node2D
