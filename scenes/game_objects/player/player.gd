@@ -9,6 +9,7 @@ var number_of_colliding_bodies = 0
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var abilities: Node = $Abilities
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,23 @@ func _process(delta: float) -> void:
 	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTING))
 	
 	move_and_slide()
+	
+	if movement_vector != Vector2.ZERO:
+		animation_player.play("walk_animation")
+	else:
+		animation_player.play("RESET")
+	
+	if velocity.x > 0:
+		# Moving to right
+		#$Sprite2D.flip_h = false;
+		$SpriteVisual.scale.x = 1
+	elif velocity.x < 0:
+		# Moving to left
+		#$Sprite2D.flip_h = true;
+		$SpriteVisual.scale.x = -1 # this will flip both sprite and animation horizontally
+	#else:
+		# Not moving horizontally
+		
 
 
 func get_movement_vector():	
