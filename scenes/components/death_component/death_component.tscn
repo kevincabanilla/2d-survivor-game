@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bwbf7bm74m75c"]
+
+[ext_resource type="Texture2D" uid="uid://d2vbrmmwmi7b1" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_gv6il"]
+
+[node name="DeathComponent" type="Node2D" unique_id=554308590]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1206909091]
+amount = 1
+texture = ExtResource("1_gv6il")
+lifetime = 0.7
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 400)
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
