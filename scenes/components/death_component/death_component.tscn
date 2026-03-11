@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bwbf7bm74m75c"]
 
+[ext_resource type="Script" uid="uid://dnsmtv6npmbpq" path="res://scenes/components/death_component/death_component.gd" id="1_8ee4n"]
 [ext_resource type="Texture2D" uid="uid://d2vbrmmwmi7b1" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_gv6il"]
 
 [sub_resource type="Animation" id="Animation_gv6il"]
@@ -57,10 +58,10 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2
 point_count = 3
 
 [node name="DeathComponent" type="Node2D" unique_id=554308590]
+script = ExtResource("1_8ee4n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1657111182]
 libraries/ = SubResource("AnimationLibrary_1834d")
-autoplay = &"default"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1206909091]
 emitting = false
