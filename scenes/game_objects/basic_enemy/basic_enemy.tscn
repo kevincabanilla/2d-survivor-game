@@ -94,7 +94,6 @@ acceleration = 10.0
 [node name="HealthComponent" parent="." unique_id=1557203200 instance=ExtResource("2_o35dm")]
 
 [node name="VialDropComponent" parent="." unique_id=1874638030 node_paths=PackedStringArray("health_component") instance=ExtResource("3_k3q5s")]
-drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 
 [node name="DeathComponent" parent="." unique_id=554308590 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_kiow1")]
