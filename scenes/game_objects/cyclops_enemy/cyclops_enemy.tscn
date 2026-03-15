@@ -8,6 +8,110 @@
 [ext_resource type="PackedScene" uid="uid://cebp6jpt1k3vp" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_iq5pn"]
 [ext_resource type="Texture2D" uid="uid://bqee7f0640sq5" path="res://scenes/game_objects/cyclops_enemy/cyclops_enemy.png" id="5_ja8dj"]
 
+[sub_resource type="Animation" id="Animation_iq5pn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteVisuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteVisuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteVisuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aegnu"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteVisuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(0, -14), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteVisuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteVisuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"set_is_moving"
+}, {
+"args": [false],
+"method": &"set_is_moving"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iq5pn"]
+_data = {
+&"RESET": SubResource("Animation_iq5pn"),
+&"walk": SubResource("Animation_aegnu")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_txp8w"]
 radius = 9.0
 
@@ -19,13 +123,17 @@ collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_aegnu")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1838198501]
+libraries/ = SubResource("AnimationLibrary_iq5pn")
+autoplay = &"walk"
+
 [node name="VelocityComponent" parent="." unique_id=489574781 instance=ExtResource("1_cxyob")]
-max_speed = 65
-acceleration = 15.0
+max_speed = 70
+acceleration = 20.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=633788070]
 script = ExtResource("1_w0pap")
-max_health = 20.0
+max_health = 15.0
 metadata/_custom_type_script = "uid://b18yf4tuoymwb"
 
 [node name="VialDropComponent" parent="." unique_id=1874638030 node_paths=PackedStringArray("health_component") instance=ExtResource("2_cxyob")]
@@ -37,6 +145,7 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../SpriteVisuals/Sprite2D")
 
 [node name="HurtboxComponent" parent="." unique_id=2073000344 node_paths=PackedStringArray("health_component") instance=ExtResource("4_iq5pn")]
+visible = false
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=890466046]
@@ -51,5 +160,6 @@ position = Vector2(0, -8)
 texture = ExtResource("5_ja8dj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=575117999]
+visible = false
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_ogiy4")
