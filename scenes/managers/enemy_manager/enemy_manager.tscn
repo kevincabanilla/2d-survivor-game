@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dm7d53qyfe37n" path="res://scenes/managers/enemy_manager/enemy_manager.gd" id="1_fm6jq"]
 [ext_resource type="PackedScene" uid="uid://d41ev2q4o75j" path="res://scenes/game_objects/basic_enemy/basic_enemy.tscn" id="2_xm5rm"]
+[ext_resource type="PackedScene" uid="uid://dwnmhvr20h7wt" path="res://scenes/game_objects/cyclops_enemy/cyclops_enemy.tscn" id="3_4rwkt"]
 
 [node name="EnemyManager" type="Node" unique_id=2006939993]
 script = ExtResource("1_fm6jq")
 basic_enemy_scene = ExtResource("2_xm5rm")
+cyclops_enemy_scene = ExtResource("3_4rwkt")
 
 [node name="Timer" type="Timer" parent="." unique_id=698149043]
 one_shot = true
