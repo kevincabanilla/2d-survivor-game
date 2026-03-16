@@ -35,6 +35,10 @@ enemy=""
 entities_layer=""
 foreground_layer=""
 
+[gui]
+
+theme/custom="uid://ddlr022iglpcq"
+
 [input]
 
 move_left={
