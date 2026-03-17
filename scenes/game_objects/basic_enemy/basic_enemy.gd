@@ -22,3 +22,7 @@ func _process(_delta: float) -> void:
 		#return (player_node.global_position - global_position).normalized()
 	#else:
 		#return Vector2.ZERO
+
+
+func _on_hurtbox_component_hit() -> void:
+	$RandomHitAudioPlayerComponent.play_random()

@@ -2,9 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dw57bpgeqkpvt" path="res://scenes/game_objects/player/player.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://c3j6x2dcvejb4" path="res://scenes/game_objects/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://b52j0kg1glert" path="res://scenes/components/random_audio_player_component/random_audio_player_component.tscn" id="2_3mdk8"]
 [ext_resource type="Script" uid="uid://b18yf4tuoymwb" path="res://scenes/components/health_component/health_component.gd" id="2_euv0w"]
 [ext_resource type="Script" uid="uid://c26sttgyc03rm" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_fe5qn"]
 [ext_resource type="PackedScene" uid="uid://c2y5k0lurypnw" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_gmlin"]
+[ext_resource type="AudioStream" uid="uid://cpbhti1ff1mi5" path="res://assets/audio/impactMining_000.ogg" id="3_pad3l"]
+[ext_resource type="AudioStream" uid="uid://b3531exomfgdq" path="res://assets/audio/impactMining_001.ogg" id="4_84ntt"]
+[ext_resource type="AudioStream" uid="uid://doas5oxu8lx56" path="res://assets/audio/impactMining_002.ogg" id="5_qwalg"]
+[ext_resource type="AudioStream" uid="uid://c33xbp8xabnmk" path="res://assets/audio/impactMining_003.ogg" id="6_g8suy"]
+[ext_resource type="AudioStream" uid="uid://cyusvt55nv13v" path="res://assets/audio/impactMining_004.ogg" id="7_1ns1k"]
 
 [sub_resource type="Animation" id="Animation_fe5qn"]
 length = 0.001
@@ -117,6 +123,9 @@ script = ExtResource("1_dovo2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1469994213]
 libraries/ = SubResource("AnimationLibrary_fe5qn")
+
+[node name="RandomHitAudioPlayer" parent="." unique_id=470792756 instance=ExtResource("2_3mdk8")]
+streams = Array[AudioStream]([ExtResource("3_pad3l"), ExtResource("4_84ntt"), ExtResource("5_qwalg"), ExtResource("6_g8suy"), ExtResource("7_1ns1k")])
 
 [node name="VelocityComponent" type="Node" parent="." unique_id=2080329701]
 script = ExtResource("2_fe5qn")

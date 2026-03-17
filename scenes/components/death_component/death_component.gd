@@ -18,3 +18,4 @@ func on_health_component_died() -> void:
 	entities.add_child(self)
 	global_position = spawn_position
 	$AnimationPlayer.play("default")
+	$RandomHitAudioPlayerComponent.play_random()

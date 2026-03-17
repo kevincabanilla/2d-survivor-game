@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dnsmtv6npmbpq" path="res://scenes/components/death_component/death_component.gd" id="1_8ee4n"]
 [ext_resource type="Texture2D" uid="uid://d2vbrmmwmi7b1" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_gv6il"]
+[ext_resource type="PackedScene" uid="uid://b52j0kg1glert" path="res://scenes/components/random_audio_player_component/random_audio_player_component.tscn" id="3_tvdin"]
+[ext_resource type="AudioStream" uid="uid://baj88tec48nir" path="res://assets/audio/footstep_carpet_000.ogg" id="4_5b0k3"]
+[ext_resource type="AudioStream" uid="uid://dfiex3sykl4mk" path="res://assets/audio/footstep_carpet_001.ogg" id="5_3lfs4"]
+[ext_resource type="AudioStream" uid="uid://bv7sn8i146xpn" path="res://assets/audio/footstep_carpet_002.ogg" id="6_y2wo5"]
+[ext_resource type="AudioStream" uid="uid://b5roxl078n1gn" path="res://assets/audio/footstep_carpet_003.ogg" id="7_d3m3p"]
+[ext_resource type="AudioStream" uid="uid://dd48np5veycfd" path="res://assets/audio/footstep_carpet_004.ogg" id="8_up0c7"]
 
 [sub_resource type="Animation" id="Animation_gv6il"]
 length = 0.001
@@ -77,3 +83,7 @@ initial_velocity_max = 120.0
 angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 scale_amount_curve = SubResource("Curve_lffis")
+
+[node name="RandomHitAudioPlayerComponent" parent="." unique_id=470792756 instance=ExtResource("3_tvdin")]
+max_distance = 300.0
+streams = Array[AudioStream]([ExtResource("4_5b0k3"), ExtResource("5_3lfs4"), ExtResource("6_y2wo5"), ExtResource("7_d3m3p"), ExtResource("8_up0c7")])

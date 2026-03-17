@@ -18,3 +18,7 @@ func _process(_delta: float) -> void:
 
 func set_is_moving(moving: bool) -> void:
 	is_moving = moving
+
+
+func _on_hurtbox_component_hit() -> void:
+	$RandomHitAudioPlayerComponent.play_random()
