@@ -3,7 +3,7 @@ class_name ArenaTimeManager
 
 const DIFFICULTY_INTERVAL = 5
 
-@export var time_limit := 1
+@export var time_limit := 1.0
 @export var end_screen_scene: PackedScene
 
 @onready var timer = $Timer
