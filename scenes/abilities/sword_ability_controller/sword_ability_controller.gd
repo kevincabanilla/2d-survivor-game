@@ -4,8 +4,10 @@ const MAX_RANGE = 150 # can be exported to be configurable
 
 @export var sword_ability: PackedScene
 
-var damage = 5
+var base_damage = 5
+var additional_damage_percent = 1
 var base_attack_rate = 1.5
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,7 +39,7 @@ func _on_timer_timeout() -> void:
 	var sword_instance = sword_ability.instantiate() as SwordAbility
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(sword_instance)
-	sword_instance.hitbox_component.damage = damage
+	sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
 	
 	var nearestEnemy = enemies[0] as Node2D
 	
@@ -48,10 +50,11 @@ func _on_timer_timeout() -> void:
 	sword_instance.rotation = enemy_direction.angle() # point the sword to the enemy
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
-	if (upgrade.id != "sword_rate"):
-		return
-	
-	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-	$Timer.wait_time = max(base_attack_rate * (1 - percent_reduction), 0.00000000000001)
-	#$Timer.start()
-	#print($Timer.wait_time)
+	match upgrade.id:
+		Utils.UPGRADE_SWORD_RATE:
+			var percent_reduction = current_upgrades[Utils.UPGRADE_SWORD_RATE]["quantity"] * 0.1
+			$Timer.wait_time = max(base_attack_rate * (1 - percent_reduction), 0.00000000000001)
+			#$Timer.start()
+			#print($Timer.wait_time)
+		Utils.UPGRADE_SWORD_DAMAGE:
+			additional_damage_percent = 1 + current_upgrades[Utils.UPGRADE_SWORD_DAMAGE]["quantity"] * .15
