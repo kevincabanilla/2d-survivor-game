@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ca3m1hdc2gh2m"]
+
+[ext_resource type="Script" uid="uid://bptwmvel1617p" path="res://scenes/components/random_stream_player_component/random_stream_player_component.gd" id="1_hxdbs"]
+
+[node name="RandomStreamPlayerComponent" type="AudioStreamPlayer" unique_id=1297777410]
+bus = &"SFX"
+script = ExtResource("1_hxdbs")

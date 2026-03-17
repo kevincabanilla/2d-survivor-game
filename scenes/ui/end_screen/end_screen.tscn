@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bo2i4njrtm3yb"]
 
 [ext_resource type="Script" uid="uid://buxs35b2fg34v" path="res://scenes/ui/end_screen/end_screen.gd" id="1_p4b2q"]
+[ext_resource type="PackedScene" uid="uid://r04ebql4kjj" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_20hmq"]
 
 [sub_resource type="Animation" id="Animation_au74e"]
 length = 0.001
@@ -108,12 +109,12 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1219155462]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1688846969]
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1343859444 instance=ExtResource("2_20hmq")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1173874260]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1162333364 instance=ExtResource("2_20hmq")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
