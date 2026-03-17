@@ -92,9 +92,6 @@ _data = {
 &"walk_animation": SubResource("Animation_euv0w")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euv0w"]
-bg_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe5qn"]
 bg_color = Color(0.2627451, 0.88235295, 0.7019608, 1)
 border_width_left = 1
@@ -139,7 +136,6 @@ offset_top = -25.0
 offset_right = 16.0
 offset_bottom = -20.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/background = SubResource("StyleBoxFlat_euv0w")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fe5qn")
 max_value = 1.0
 value = 0.5
