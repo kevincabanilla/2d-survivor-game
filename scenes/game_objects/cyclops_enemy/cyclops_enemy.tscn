@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bwbf7bm74m75c" path="res://scenes/components/death_component/death_component.tscn" id="3_aegnu"]
 [ext_resource type="PackedScene" uid="uid://cebp6jpt1k3vp" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_iq5pn"]
 [ext_resource type="Texture2D" uid="uid://bqee7f0640sq5" path="res://scenes/game_objects/cyclops_enemy/cyclops_enemy.png" id="5_ja8dj"]
+[ext_resource type="PackedScene" uid="uid://jocvae8yse3y" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="5_txp8w"]
+[ext_resource type="Shader" uid="uid://bxhp053etioco" path="res://scenes/components/hit_flash_component/hit_flash_component.gdshader" id="6_ogiy4"]
 
 [sub_resource type="Animation" id="Animation_iq5pn"]
 length = 0.001
@@ -112,13 +114,18 @@ _data = {
 &"walk": SubResource("Animation_aegnu")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8d4b"]
+resource_local_to_scene = true
+shader = ExtResource("6_ogiy4")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_txp8w"]
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogiy4"]
 radius = 6.0
 
-[node name="CyclopsEnemy" type="CharacterBody2D" unique_id=1866537657 groups=["enemy"]]
+[node name="CyclopsEnemy" type="CharacterBody2D" unique_id=924948997 groups=["enemy"]]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_aegnu")
@@ -139,6 +146,11 @@ metadata/_custom_type_script = "uid://b18yf4tuoymwb"
 [node name="VialDropComponent" parent="." unique_id=1874638030 node_paths=PackedStringArray("health_component") instance=ExtResource("2_cxyob")]
 drop_percent = 0.4
 health_component = NodePath("../HealthComponent")
+
+[node name="HitFlashComponent" parent="." unique_id=2128604383 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_txp8w")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../SpriteVisuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_v8d4b")
 
 [node name="DeathComponent" parent="." unique_id=554308590 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("3_aegnu")]
 health_component = NodePath("../HealthComponent")

@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bdpltyk0jbln3" path="res://scenes/components/vial_drop_component/vial_drop_component.tscn" id="3_k3q5s"]
 [ext_resource type="PackedScene" uid="uid://cebp6jpt1k3vp" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_6pyqk"]
 [ext_resource type="PackedScene" uid="uid://bwbf7bm74m75c" path="res://scenes/components/death_component/death_component.tscn" id="4_kiow1"]
+[ext_resource type="PackedScene" uid="uid://jocvae8yse3y" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="5_umlbd"]
+[ext_resource type="Shader" uid="uid://bxhp053etioco" path="res://scenes/components/hit_flash_component/hit_flash_component.gdshader" id="6_6fk1g"]
 
 [sub_resource type="Animation" id="Animation_kiow1"]
 length = 0.001
@@ -71,13 +73,18 @@ _data = {
 &"walk_animation": SubResource("Animation_6pyqk")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elumd"]
+resource_local_to_scene = true
+shader = ExtResource("6_6fk1g")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pyqk"]
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ii2rq"]
 radius = 5.5
 
-[node name="BasicEnemy" type="CharacterBody2D" unique_id=102645086 groups=["enemy"]]
+[node name="BasicEnemy" type="CharacterBody2D" unique_id=975417059 groups=["enemy"]]
 collision_layer = 8
 collision_mask = 9
 motion_mode = 1
@@ -95,6 +102,11 @@ acceleration = 10.0
 
 [node name="VialDropComponent" parent="." unique_id=1874638030 node_paths=PackedStringArray("health_component") instance=ExtResource("3_k3q5s")]
 health_component = NodePath("../HealthComponent")
+
+[node name="HitFlashComponent" parent="." unique_id=2128604383 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_umlbd")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../SpriteVisual/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_elumd")
 
 [node name="DeathComponent" parent="." unique_id=554308590 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_kiow1")]
 health_component = NodePath("../HealthComponent")
