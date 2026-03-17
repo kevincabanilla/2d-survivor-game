@@ -15,6 +15,22 @@ texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 region_rect = Rect2(18, 2, 12, 12)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_etnbh"]
+texture = ExtResource("1_0k5xl")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(20, 20, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_crme1"]
+texture = ExtResource("1_0k5xl")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(4, 20, 8, 8)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iokhm"]
 texture = ExtResource("1_0k5xl")
 texture_margin_left = 4.0
@@ -31,6 +47,12 @@ default_font = ExtResource("1_1ymaj")
 default_font_size = 16
 AlternatePanelContainer/base_type = &"PanelContainer"
 AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_0k5xl")
+Button/colors/font_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
+Button/colors/font_hover_color = Color(0.7411765, 0.42352942, 0.2901961, 1)
+Button/colors/font_pressed_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_etnbh")
+Button/styles/normal = SubResource("StyleBoxTexture_crme1")
+Button/styles/pressed = SubResource("StyleBoxTexture_crme1")
 Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_iokhm")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_euv0w")
