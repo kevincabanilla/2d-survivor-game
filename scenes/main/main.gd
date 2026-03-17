@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 
 func on_player_died() -> void:
 	var end_screen_scene_instance = end_screen_scene.instantiate()
-	end_screen_scene_instance.set_defeat()
 	add_child(end_screen_scene_instance)
+	end_screen_scene_instance.set_defeat()

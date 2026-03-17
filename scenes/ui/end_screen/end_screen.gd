@@ -1,4 +1,6 @@
 extends CanvasLayer
+class_name EndScreen
+
 
 @onready var panel_container: PanelContainer = %PanelContainer
 
@@ -17,6 +19,15 @@ func _ready() -> void:
 func set_defeat() -> void:
 	%TitleLabel.text = "Defeat"
 	%DescLabel.text = "You lost!"
+	play_jingle(true)
+
+
+func play_jingle(defeat := false) -> void:
+	if (defeat):
+		$DefeatAudioStreamPlayer.play()
+	else:
+		$VictoryAudioStreamPlayer.play()
+
 
 func _on_restart_button_pressed() -> void:
 	$AnimationPlayer.play_backwards("in")
