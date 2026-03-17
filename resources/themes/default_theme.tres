@@ -3,6 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://cvy8t78b2axv7" path="res://assets/ui/ui.png" id="1_0k5xl"]
 [ext_resource type="FontFile" uid="uid://3roesjrl50rm" path="res://resources/themes/Rockboxcond12.ttf" id="1_1ymaj"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0k5xl"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_0k5xl")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(18, 2, 12, 12)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iokhm"]
 texture = ExtResource("1_0k5xl")
 texture_margin_left = 4.0
@@ -14,4 +26,7 @@ region_rect = Rect2(0, 0, 16, 16)
 [resource]
 default_font = ExtResource("1_1ymaj")
 default_font_size = 16
+AlternatePanelContainer/base_type = &"PanelContainer"
+AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_0k5xl")
+Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_iokhm")
