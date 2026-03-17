@@ -11,12 +11,14 @@ var ability_axe = preload("res://resources/upgrades/axe_ability.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
+var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 
 
 func _ready() -> void:
 	experince_manager.level_up.connect(on_level_up)
 	
 	upgrade_pool.add_items([ability_axe, upgrade_sword_damage, upgrade_sword_rate], 10)
+	upgrade_pool.add_item(upgrade_player_speed, 5)
 
 
 func apply_upgrade(upgrade: AbilityUpgrade) -> void:	
@@ -45,7 +47,7 @@ func pick_upgrades_new() -> Array[AbilityUpgrade]:
 	var chosen_upgrades: Array[AbilityUpgrade] = []
 	
 	# upgrade pool randomizer
-	for i in 2:
+	for i in 3:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
 		var chosen_upgrade: AbilityUpgrade = upgrade_pool.pick_item(chosen_upgrades)

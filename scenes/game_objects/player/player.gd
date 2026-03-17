@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 200
-const ACCELERATION_SMOOTING = 25
+#const MAX_SPEED = 60
+#const ACCELERATION_SMOOTING = 25
+
+var base_speed := 0
 
 var number_of_colliding_bodies = 0
 
@@ -10,9 +12,11 @@ var number_of_colliding_bodies = 0
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var abilities: Node = $Abilities
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var velocity_component: VelocityComponent = $VelocityComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	base_speed = velocity_component.max_speed
 	health_component.health_changed.connect(on_health_changed)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	update_health_display()
@@ -22,11 +26,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var movement_vector = get_movement_vector()
 	var direction = movement_vector.normalized()
-	var target_velocity = direction * MAX_SPEED
-	
-	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTING))
-	
-	move_and_slide()
+	velocity_component.accelerate_in_direction(direction)
+	velocity_component.move(self)
+	#var target_velocity = direction * MAX_SPEED	
+	#velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTING))	
+	#move_and_slide()
 	
 	if movement_vector != Vector2.ZERO:
 		animation_player.play("walk_animation")
@@ -83,8 +87,8 @@ func on_health_changed() -> void:
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
-	if not upgrade is WeaponAbility:
-		return
-	
-	var axe_ability: AxeAbilityController = (upgrade as WeaponAbility).ability_controller_scene.instantiate()
-	abilities.add_child(axe_ability)
+	if upgrade is WeaponAbility:
+		var axe_ability: AxeAbilityController = (upgrade as WeaponAbility).ability_controller_scene.instantiate()
+		abilities.add_child(axe_ability)
+	elif upgrade.id == Utils.UPGRADE_PLAYER_SPEED:
+		velocity_component.max_speed = base_speed + (base_speed * current_upgrades[Utils.UPGRADE_PLAYER_SPEED]["quantity"] * .1)

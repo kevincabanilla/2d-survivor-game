@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dw57bpgeqkpvt" path="res://scenes/game_objects/player/player.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://c3j6x2dcvejb4" path="res://scenes/game_objects/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://b18yf4tuoymwb" path="res://scenes/components/health_component/health_component.gd" id="2_euv0w"]
+[ext_resource type="Script" uid="uid://c26sttgyc03rm" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_fe5qn"]
 [ext_resource type="PackedScene" uid="uid://c2y5k0lurypnw" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_gmlin"]
 
 [sub_resource type="Animation" id="Animation_fe5qn"]
@@ -116,6 +117,12 @@ script = ExtResource("1_dovo2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1469994213]
 libraries/ = SubResource("AnimationLibrary_fe5qn")
+
+[node name="VelocityComponent" type="Node" parent="." unique_id=2080329701]
+script = ExtResource("2_fe5qn")
+max_speed = 90
+acceleration = 25.0
+metadata/_custom_type_script = "uid://c26sttgyc03rm"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=982588784]
 script = ExtResource("2_euv0w")

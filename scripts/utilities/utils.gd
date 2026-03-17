@@ -1,15 +1,18 @@
 extends Node
 
+# Groups
 const PLAYER_GROUP = "player"
 const ENEMY_GROUP = "enemy"
 const FOREGROUND_LAYER_GROUP = "foreground_layer"
 const ENTITIES_LAYER_GROUP = "entities_layer"
 const UPGRADE_CARD_GROUP = "upgrade_card"
 
+# Ablities/Upgrades
 const ABILITY_AXE = "axe_ability"
 const UPGRADE_SWORD_DAMAGE = "sword_damage"
 const UPGRADE_SWORD_RATE = "sword_rate"
 const UPGRADE_AXE_DAMAGE = "axe_damage"
+const UPGRADE_PLAYER_SPEED = "player_speed"
 
 
 func get_first_node_in_group(group_name: String) -> Node2D:
