@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c55lqmiog5he7" path="res://scenes/managers/enemy_manager/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://bo2i4njrtm3yb" path="res://scenes/ui/end_screen/end_screen.tscn" id="2_ouso4"]
 [ext_resource type="PackedScene" uid="uid://bo6sejo1olgxn" path="res://scenes/managers/arena_time_manager/arena_time_manager.tscn" id="2_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://cknmf1mjq10d4" path="res://scenes/ui/gameplay/vignette/Vignette.tscn" id="3_blune"]
 [ext_resource type="PackedScene" uid="uid://b2xapel4u2fnm" path="res://scenes/managers/experience_manager/experience_manager.tscn" id="4_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://duv8fhug314vq" path="res://scenes/managers/upgrade_manager/upgrade_manager.tscn" id="5_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://do4aonikeuwcw" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="5_yyfjg"]
@@ -15,6 +16,8 @@
 [node name="Main" type="Node" unique_id=1763922850]
 script = ExtResource("1_a8run")
 end_screen_scene = ExtResource("2_ouso4")
+
+[node name="Vignette" parent="." unique_id=395488624 instance=ExtResource("3_blune")]
 
 [node name="ArenaTimeUI" parent="." unique_id=1480019983 node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6q06x")]
 arena_time_manager = NodePath("../ArenaTimeManager")
