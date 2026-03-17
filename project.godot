@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://b76qbs7q17ceg"
 
 GameEvents="*uid://cufehma64nk1f"
 Utils="*uid://d4ft3im0yujb6"
+MusicPlayer="*uid://djvjgoxg0w2nr"
 
 [display]
 
