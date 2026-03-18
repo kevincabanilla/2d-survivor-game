@@ -10,14 +10,15 @@ var upgrade_pool := WeightedTable.new()
 var ability_axe = preload("res://resources/upgrades/axe_ability.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
-var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
+#var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
+var upgrade_attack_speed = preload("res://resources/upgrades/attack_speed.tres")
 
 
 func _ready() -> void:
 	experince_manager.level_up.connect(on_level_up)
 	
-	upgrade_pool.add_items([ability_axe, upgrade_sword_damage, upgrade_sword_rate], 10)
+	upgrade_pool.add_items([ability_axe, upgrade_sword_damage, upgrade_attack_speed], 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 
 

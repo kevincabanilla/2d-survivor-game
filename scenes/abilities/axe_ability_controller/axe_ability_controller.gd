@@ -33,6 +33,9 @@ func _on_timer_timeout() -> void:
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	match upgrade.id:
+		Utils.UPGRADE_ATTACK_SPEED:
+			var percent_reduction = current_upgrades[Utils.UPGRADE_ATTACK_SPEED]["quantity"] * 0.1
+			$Timer.wait_time = max(base_attack_interval - (base_attack_interval * percent_reduction), 0.1)
 		Utils.UPGRADE_AXE_DAMAGE:
 			additional_damage_percent = 1 + current_upgrades[Utils.UPGRADE_AXE_DAMAGE]["quantity"] * .1
 	
