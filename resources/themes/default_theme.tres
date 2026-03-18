@@ -31,6 +31,39 @@ texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 region_rect = Rect2(4, 20, 8, 8)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0k5xl"]
+load_path = "res://.godot/imported/ui.png-18543ef61e2d0147d509ac18b5e095b1.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttywx"]
+texture = SubResource("CompressedTexture2D_0k5xl")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(20, 20, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iokhm"]
+load_path = "res://.godot/imported/ui.png-18543ef61e2d0147d509ac18b5e095b1.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6fef"]
+texture = SubResource("CompressedTexture2D_iokhm")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(20, 20, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tjpgc"]
+load_path = "res://.godot/imported/ui.png-18543ef61e2d0147d509ac18b5e095b1.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0x5bx"]
+texture = SubResource("CompressedTexture2D_tjpgc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(4, 20, 8, 8)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iokhm"]
 texture = ExtResource("1_0k5xl")
 texture_margin_left = 4.0
@@ -53,6 +86,13 @@ Button/colors/font_pressed_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
 Button/styles/hover = SubResource("StyleBoxTexture_etnbh")
 Button/styles/normal = SubResource("StyleBoxTexture_crme1")
 Button/styles/pressed = SubResource("StyleBoxTexture_crme1")
+CheckBox/colors/checkbox_checked_color = Color(0, 0.6, 0.85882354, 1)
+CheckBox/colors/checkbox_unchecked_color = Color(0.54901963, 0.39215687, 0.15294118, 1)
+CheckBox/colors/font_hover_color = Color(0.7411765, 0.42352942, 0.2901961, 1)
+CheckBox/colors/font_hover_pressed_color = Color(0.7411765, 0.42352942, 0.2901961, 1)
+CheckBox/styles/hover = SubResource("StyleBoxTexture_ttywx")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_t6fef")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_0x5bx")
 Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_iokhm")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_euv0w")
