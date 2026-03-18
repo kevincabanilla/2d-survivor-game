@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://boq5qufvdt6n3"]
+
+[ext_resource type="Script" uid="uid://dmqt4s7gxqdgu" path="res://scenes/ui/upgrade_screen/meta_upgrade_card.gd" id="1_2exxc"]
+[ext_resource type="PackedScene" uid="uid://ca3m1hdc2gh2m" path="res://scenes/components/random_stream_player_component/random_stream_player_component.tscn" id="2_ooe2w"]
+[ext_resource type="AudioStream" uid="uid://bmpsmcuky7w0a" path="res://assets/audio/switch1.ogg" id="3_jcfvr"]
+[ext_resource type="AudioStream" uid="uid://dxi6e77ftamte" path="res://assets/audio/switch2.ogg" id="4_8l1u0"]
+[ext_resource type="AudioStream" uid="uid://c5oy0cnil13tt" path="res://assets/audio/switch3.ogg" id="5_baauo"]
+[ext_resource type="AudioStream" uid="uid://dqc3j3oglx0i0" path="res://assets/audio/switch4.ogg" id="6_wbbhs"]
+[ext_resource type="AudioStream" uid="uid://v7s351lvjqfr" path="res://assets/audio/switch5.ogg" id="7_tqx83"]
+[ext_resource type="AudioStream" uid="uid://bbw4ybp8gqom" path="res://assets/audio/switch6.ogg" id="8_8u6xx"]
+[ext_resource type="AudioStream" uid="uid://177yg0xbcho" path="res://assets/audio/switch7.ogg" id="9_g5coq"]
+[ext_resource type="AudioStream" uid="uid://rs7xjgqyc7s1" path="res://assets/audio/switch8.ogg" id="10_a7ie4"]
+[ext_resource type="AudioStream" uid="uid://cbf6k1cxser20" path="res://assets/audio/switch9.ogg" id="11_8h0cn"]
+[ext_resource type="AudioStream" uid="uid://dno3afurudgsc" path="res://assets/audio/switch10.ogg" id="12_vsnhk"]
+[ext_resource type="Texture2D" uid="uid://jeiq64gg5gdx" path="res://scenes/game_objects/experience_vial/experience_vial.png" id="13_ooe2w"]
+
+[sub_resource type="Animation" id="Animation_hyemj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_iixuf"]
+resource_name = "click"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, -0.116355285, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClickPlayerComponent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_uja2w"]
+resource_name = "in"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hyemj"]
+_data = {
+&"RESET": SubResource("Animation_hyemj"),
+&"click": SubResource("Animation_iixuf"),
+&"in": SubResource("Animation_uja2w")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcfvr"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.45882353, 0.8901961, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+anti_aliasing = false
+
+[node name="MetaUpgradeCard" type="PanelContainer" unique_id=90594434 groups=["upgrade_card"]]
+custom_minimum_size = Vector2(170, 0)
+pivot_offset = Vector2(85, 60)
+script = ExtResource("1_2exxc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=662775326]
+libraries/ = SubResource("AnimationLibrary_hyemj")
+
+[node name="ClickPlayerComponent" parent="." unique_id=1967090871 instance=ExtResource("2_ooe2w")]
+streams = Array[AudioStream]([ExtResource("3_jcfvr"), ExtResource("4_8l1u0"), ExtResource("5_baauo"), ExtResource("6_wbbhs"), ExtResource("7_tqx83"), ExtResource("8_8u6xx"), ExtResource("9_g5coq"), ExtResource("10_a7ie4"), ExtResource("11_8h0cn"), ExtResource("12_vsnhk")])
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1205619262]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1838392020]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=895841380]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"AlternatePanelContainer"
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1596362683]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_font_sizes/font_size = 24
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DescLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1546200889]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 23)
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "This is the ability description
+"
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=424262289]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1048113548]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1887396811]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_jcfvr")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1924045240]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Control" unique_id=697641368]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -4.0
+offset_right = 7.0
+offset_bottom = 12.0
+texture = ExtResource("13_ooe2w")
+
+[node name="ProgressBarLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=646363391]
+layout_mode = 2
+size_flags_vertical = 8
+theme_type_variation = &"BlueOutlineLabel"
+text = "50/258"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2110374624]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Purchase"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
