@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://w6b67bey7ocr"]
+
+[ext_resource type="Script" uid="uid://nr138peapx2k" path="res://scenes/autoload/meta_progression/meta_progression.gd" id="1_e1dk5"]
+
+[node name="MetaProgression" type="Node" unique_id=1242070725]
+script = ExtResource("1_e1dk5")
