@@ -9,6 +9,10 @@ func _ready() -> void:
 	
 func on_experience_updated(current_exp: float, target_exp: float) -> void:
 	var percent = current_exp / target_exp
-	var tween = create_tween()
-	tween.tween_property(progress_bar, "value", percent, 0.2)
-	#progress_bar.value = percent
+	
+	if (percent != 0 && percent < 1):
+		var tween = create_tween()
+		tween.tween_property(progress_bar, "value", percent, 0.4)\
+			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	else:
+		progress_bar.value = percent
