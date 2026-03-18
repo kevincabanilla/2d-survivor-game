@@ -36,6 +36,14 @@ func _initialize_signals() -> void:
 	return_button.pressed.connect(_on_return_button_pressed)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		get_tree().root.set_input_as_handled()
+		exit.emit()
+	elif event.is_action_pressed("pause"):
+		get_tree().root.set_input_as_handled()
+
+
 func get_bus_volume_percent(bus_name: String) -> float:
 	var bus_index = AudioServer.get_bus_index(bus_name)
 	var volumne_db = AudioServer.get_bus_volume_db(bus_index)
