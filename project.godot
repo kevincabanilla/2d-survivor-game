@@ -12,6 +12,8 @@ config_version=5
 
 config/name="2DSurvivorGame"
 run/main_scene="uid://d37uehoq3s3lp"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="2dSurvivorGame"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,6 +27,7 @@ GameEvents="*uid://cufehma64nk1f"
 Utils="*uid://d4ft3im0yujb6"
 MusicPlayer="*uid://djvjgoxg0w2nr"
 ScreenTransition="*uid://cogdcctav75f8"
+MetaProgression="*uid://w6b67bey7ocr"
 
 [display]
 
