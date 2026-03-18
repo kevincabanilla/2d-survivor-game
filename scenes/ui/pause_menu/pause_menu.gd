@@ -57,17 +57,20 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_restart_button_pressed() -> void:
+	await ScreenTransition.transition()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 
 
 func _on_options_button_pressed() -> void:
+	await ScreenTransition.transition()
 	var options_menu: OptionsMenu = options_menu_scene.instantiate()
 	add_child(options_menu)
 	options_menu.exit.connect((func(options_menu_instance: OptionsMenu): options_menu_instance.queue_free()).bind(options_menu))
 
 
 func _on_quit_menu_button_pressed() -> void:
+	await ScreenTransition.transition()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu/main_menu.tscn")
 

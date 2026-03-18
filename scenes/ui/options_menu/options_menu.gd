@@ -39,7 +39,7 @@ func _initialize_signals() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		get_tree().root.set_input_as_handled()
-		exit.emit()
+		emit_exit()
 	elif event.is_action_pressed("pause"):
 		get_tree().root.set_input_as_handled()
 
@@ -54,6 +54,10 @@ func set_bus_volume_percent(bus_name: String, value: float) -> void:
 	var bus_index = AudioServer.get_bus_index(bus_name)
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 
+
+func emit_exit() -> void:	
+	await ScreenTransition.transition()
+	exit.emit()
 
 func update_volumes() -> void:
 	set_bus_volume_percent("Master", master_vol_slider.value)
@@ -83,4 +87,4 @@ func _on_debounce_timer_timeout() -> void:
 
 
 func _on_return_button_pressed() -> void:
-	exit.emit()
+	emit_exit()
