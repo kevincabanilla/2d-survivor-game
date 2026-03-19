@@ -1,6 +1,7 @@
 extends Node
 
 @export_range(0,1) var drop_percent: float = 0.5
+@export var exp_value: float = 1
 @export var health_component: Node
 @export var vial_scene: PackedScene
 
@@ -10,7 +11,7 @@ func _ready() -> void:
 
 func on_died():
 	var adjusted_drop_percent = drop_percent
-	var exp_upgrade = MetaProgression.get_meta_upgrade_save_data(MetaProgression.EXP_VIAL_DROP_RATE)
+	var exp_upgrade = MetaProgression.get_meta_upgrade_save_data(MetaProgression.UPGRADE_EXP_VIAL_DROP_RATE)
 	
 	if (!exp_upgrade.is_empty()):
 		adjusted_drop_percent += (exp_upgrade["value"] * exp_upgrade["quantity"]) as float
@@ -27,7 +28,8 @@ func on_died():
 		return
 	
 	var spawn_position = (owner as Node2D).global_position
-	var vial_instance = vial_scene.instantiate() as Node2D
+	var vial_instance = vial_scene.instantiate() as ExperienceVial
+	vial_instance.exp_value = exp_value
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	if entities_layer == null:
 		owner.get_parent().add_child(vial_instance)

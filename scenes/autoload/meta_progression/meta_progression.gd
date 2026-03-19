@@ -2,11 +2,19 @@ extends Node
 
 
 const SAVE_FILE_PATH = "user://game.save"
+
+# Meta data
+const CURRENT_LEVEL = "current_level"
+const TOTAL_EXP = "total_exp"
 const EXPERIENCE_POINTS = "meta_upgrade_currency"
-const EXPERIENCE_GAIN = "experience_gain"
-const EXP_VIAL_DROP_RATE = "exp_vial_drop_rate"
+
+# Meta Upgrades
+const UPGRADE_EXPERIENCE_GAIN = "experience_gain"
+const UPGRADE_EXP_VIAL_DROP_RATE = "exp_vial_drop_rate"
 
 var save_data := {
+	"current_level": 0,
+	"total_exp": 0.0,
 	"meta_upgrade_currency": 0,
 	"meta_upgrades": {
 		
@@ -57,6 +65,13 @@ func update_exp_points(callback: Callable) -> void:
 	print("New EXP points: %d" % new_exp)
 	save_data[EXPERIENCE_POINTS] = new_exp
 	exp_points_updated.emit(new_exp)
+
+
+func get_meta_data(key: String) -> Variant:
+	if (save_data.has(key)):
+		return save_data[key]
+	else:
+		return null
 
 
 func get_meta_upgrade_save_data(meta_upgrade_id: String) -> Dictionary:

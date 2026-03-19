@@ -1,4 +1,6 @@
-extends Node2D
+class_name ExperienceVial extends Node2D
+
+@export var exp_value := 0.0
 
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
@@ -24,7 +26,7 @@ func collecct() -> void:
 	visible = false
 	$RandomAudioPlayerComponent.play_random()
 	await $RandomAudioPlayerComponent.finished
-	GameEvents.emit_experience_vial_collected(1)
+	GameEvents.emit_experience_vial_collected(exp_value)
 	queue_free()
 
 
