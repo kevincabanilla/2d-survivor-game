@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://cslwqsim5vfdw"]
+
+[ext_resource type="Script" uid="uid://cqgqj6oebqyuw" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_g4f28"]
+
+[resource]
+script = ExtResource("1_g4f28")
+id = "exp_vial_drop_rate"
+max_quantity = 5
+experience_cost = 20
+title = "Vial Drop Rate"
+description = "Increase experience drop chance by 10%"
+value = 0.1
