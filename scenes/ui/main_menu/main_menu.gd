@@ -7,6 +7,7 @@ var options_menu_scene = preload("res://scenes/ui/options_menu/options_menu.tscn
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%PlayButton.pressed.connect(_on_play_button_pressed)
+	%UpgradesButton.pressed.connect(_on_upgrades_button_pressed)
 	%OptionsButton.pressed.connect(_on_options_button_pressed)
 	%QuitButton.pressed.connect(_on_quit_button_pressed)
 
@@ -14,6 +15,11 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	await ScreenTransition.transition()
 	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+
+
+func _on_upgrades_button_pressed() -> void:
+	await ScreenTransition.transition()
+	get_tree().change_scene_to_file("res://scenes/ui/meta_menu/meta_menu.tscn")
 
 
 func _on_options_button_pressed() -> void:

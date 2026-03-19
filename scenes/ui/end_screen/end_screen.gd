@@ -29,13 +29,16 @@ func play_jingle(defeat := false) -> void:
 		$VictoryAudioStreamPlayer.play()
 
 
-func _on_restart_button_pressed() -> void:
+
+func _on_continue_button_pressed() -> void:
 	$AnimationPlayer.play_backwards("in")
-	await $AnimationPlayer.animation_finished	
+	await $AnimationPlayer.animation_finished
 	await ScreenTransition.transition()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/meta_menu/meta_menu.tscn")
 
 
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+	await ScreenTransition.transition()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu/main_menu.tscn")

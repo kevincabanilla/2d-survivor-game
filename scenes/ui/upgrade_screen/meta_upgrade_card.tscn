@@ -221,7 +221,10 @@ offset_right = 7.0
 offset_bottom = 12.0
 texture = ExtResource("13_ooe2w")
 
-[node name="ProgressBarLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=646363391]
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=429539274]
+layout_mode = 2
+
+[node name="ProgressBarLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=646363391]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
@@ -229,6 +232,14 @@ theme_type_variation = &"BlueOutlineLabel"
 text = "50/258"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="UpgradeCountLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HFlowContainer" unique_id=2133627346]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"BlueOutlineLabel"
+text = "x0"
+horizontal_alignment = 2
 
 [node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2110374624]
 unique_name_in_owner = true
