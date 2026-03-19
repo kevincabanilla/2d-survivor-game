@@ -2,6 +2,7 @@ extends Node
 
 
 const SAVE_FILE_PATH = "user://game.save"
+const EXPERIENCE_POINTS = "meta_upgrade_currency"
 
 var save_data := {
 	"meta_upgrade_currency": 0,
@@ -10,6 +11,7 @@ var save_data := {
 	}
 }
 
+signal exp_points_updated(new_exp_points: int)
 
 func _ready() -> void:
 	load_save_file()
@@ -31,6 +33,10 @@ func save() -> void:
 	file.store_var(save_data)
 
 
+func get_exp_points() -> int:
+	return save_data[EXPERIENCE_POINTS]
+
+
 func add_meta_upgrade(meta_upgrade: MetaUpgrade) -> void:
 	if (!save_data["meta_upgrades"].has(meta_upgrade.id)):
 		save_data["meta_upgrades"][meta_upgrade.id] = {
@@ -39,8 +45,16 @@ func add_meta_upgrade(meta_upgrade: MetaUpgrade) -> void:
 		}
 	
 	save_data["meta_upgrades"][meta_upgrade.id]["quantity"] += 1
+	update_exp_points(func(exp_points:int): return exp_points - meta_upgrade.experience_cost)
 	#print(save_data)
+	#save()
 
+
+func update_exp_points(callback: Callable) -> void:
+	var new_exp = callback.call(save_data[EXPERIENCE_POINTS])
+	print("New EXP points: %d" % new_exp)
+	save_data[EXPERIENCE_POINTS] = new_exp
+	exp_points_updated.emit(new_exp)
 
 
 func _on_experience_collected(number: float) -> void:

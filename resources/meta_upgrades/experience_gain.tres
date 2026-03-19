@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://brw24vfhu7qus"]
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://brw24vfhu7qus"]
 
 [ext_resource type="Script" uid="uid://cqgqj6oebqyuw" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_j6tqy"]
 
