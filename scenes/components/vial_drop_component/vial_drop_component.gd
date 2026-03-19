@@ -9,7 +9,15 @@ func _ready() -> void:
 	(health_component as HealthComponent).died.connect(on_died)
 
 func on_died():
-	if randf() > drop_percent:
+	var adjusted_drop_percent = drop_percent
+	var exp_upgrade = MetaProgression.get_meta_upgrade_save_data(MetaProgression.EXP_VIAL_DROP_RATE)
+	
+	if (!exp_upgrade.is_empty()):
+		adjusted_drop_percent += (exp_upgrade["value"] * exp_upgrade["quantity"]) as float
+	
+	#print("vial drop percent: " + str(adjusted_drop_percent))
+	
+	if randf() > adjusted_drop_percent:
 		return
 	
 	if vial_scene == null:

@@ -107,7 +107,6 @@ acceleration = 10.0
 [node name="HealthComponent" parent="." unique_id=1557203200 instance=ExtResource("2_o35dm")]
 
 [node name="VialDropComponent" parent="." unique_id=1874638030 node_paths=PackedStringArray("health_component") instance=ExtResource("3_k3q5s")]
-drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 
 [node name="HitFlashComponent" parent="." unique_id=2128604383 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_umlbd")]
@@ -120,7 +119,6 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../SpriteVisual/Sprite2D")
 
 [node name="RandomHitAudioPlayerComponent" parent="." unique_id=470792756 instance=ExtResource("10_1cahr")]
-max_distance = 300.0
 streams = Array[AudioStream]([ExtResource("10_elumd"), ExtResource("12_bpnaa"), ExtResource("13_o835m"), ExtResource("14_3wq54"), ExtResource("15_tkgud")])
 
 [node name="HurtboxComponent" parent="." unique_id=2073000344 node_paths=PackedStringArray("health_component") instance=ExtResource("4_6pyqk")]
