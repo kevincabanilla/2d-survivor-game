@@ -45,19 +45,27 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Back"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=609891442]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1484997595]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=609891442]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_constants/h_separation = 33
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="MetaUpgradeCard" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=90594434 instance=ExtResource("6_413hx")]
+[node name="MetaUpgradeCard" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=90594434 instance=ExtResource("6_413hx")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard2" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2046589554 instance=ExtResource("6_413hx")]
+[node name="MetaUpgradeCard2" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=2046589554 instance=ExtResource("6_413hx")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard3" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1125297532 instance=ExtResource("6_413hx")]
+[node name="MetaUpgradeCard3" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=1125297532 instance=ExtResource("6_413hx")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard4" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" unique_id=250834344 instance=ExtResource("6_413hx")]
 layout_mode = 2
