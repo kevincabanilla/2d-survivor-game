@@ -32,7 +32,7 @@ func update_progress() -> void:
 	var upgrade_save_data = MetaProgression.get_meta_upgrade_save_data(_upgrade.id)
 	if (!upgrade_save_data.is_empty()):
 		var quantity = upgrade_save_data["quantity"]
-		var is_maxed = quantity >= _upgrade.max_quantity
+		var is_maxed = (quantity >= _upgrade.max_quantity) if _upgrade.max_quantity > 0 else false
 		purchase_button.disabled = percent < 1 || is_maxed
 		upgrade_count_label.text = "x%d" % quantity
 		if is_maxed:

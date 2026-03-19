@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_g4f28")
 id = "exp_vial_drop_rate"
-max_quantity = 5
+max_quantity = 10
 experience_cost = 20
 title = "Vial Drop Rate"
 description = "Increase experience drop chance by 10%"
