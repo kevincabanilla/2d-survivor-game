@@ -22,6 +22,9 @@ end_screen_scene = ExtResource("2_ouso4")
 [node name="ArenaTimeUI" parent="." unique_id=1480019983 node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6q06x")]
 arena_time_manager = NodePath("../ArenaTimeManager")
 
+[node name="ExperienceBar" parent="." unique_id=138796721 node_paths=PackedStringArray("experience_manager") instance=ExtResource("5_yyfjg")]
+experience_manager = NodePath("../ExperienceManager")
+
 [node name="ArenaTimeManager" parent="." unique_id=782081870 instance=ExtResource("2_ow5a4")]
 time_limit = 3.0
 
@@ -32,9 +35,6 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="UpgradeManager" parent="." unique_id=1553397390 node_paths=PackedStringArray("experince_manager") instance=ExtResource("5_b1x3f")]
 experince_manager = NodePath("../ExperienceManager")
-
-[node name="ExperienceBar" parent="." unique_id=138796721 node_paths=PackedStringArray("experience_manager") instance=ExtResource("5_yyfjg")]
-experience_manager = NodePath("../ExperienceManager")
 
 [node name="GameCamera" parent="." unique_id=37733669 instance=ExtResource("1_k2fmo")]
 

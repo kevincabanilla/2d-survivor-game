@@ -19,6 +19,7 @@ func load_save_data() -> void:
 	current_level = MetaProgression.get_meta_data(MetaProgression.CURRENT_LEVEL, current_level)
 	current_experience = MetaProgression.get_meta_data(MetaProgression.CURRENT_EXPERIENCE, current_experience)
 	target_experience = MetaProgression.get_meta_data(MetaProgression.TARGET_EXPERIENCE, target_experience)
+	experience_updated.emit(current_experience, target_experience)
 
 
 func on_experience_vial_collected(number: float) -> void:
