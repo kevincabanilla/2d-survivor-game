@@ -26,6 +26,7 @@ var save_data := {
 }
 
 signal exp_points_updated(new_exp_points: int)
+signal save_data_updated(save_data: Dictionary)
 
 func _ready() -> void:
 	load_save_file()
@@ -70,20 +71,23 @@ func update_exp_points(callback: Callable) -> void:
 	#print("New EXP points: %d" % new_exp)
 	save_data[EXPERIENCE_POINTS] = new_exp
 	exp_points_updated.emit(new_exp)
+	save_data_updated.emit(save_data)
 
 
 func update_total_exp(exp_val: float) -> float:
 	save_data[TOTAL_EXP] += exp_val
+	save_data_updated.emit(save_data)
 	return save_data[TOTAL_EXP]
 
 
 func update_save_data(key: String, value: Variant) -> void:
 	if (save_data.has(key)):
 		save_data[key] = value;
+		save_data_updated.emit(save_data)
 
 
 func get_meta_data(key: String, default_val: Variant = null) -> Variant:
-	if (save_data.has(key)):
+	if (save_data.has(key) && save_data[key] != 0 && save_data[key] != null):
 		return save_data[key]
 	else:
 		return default_val

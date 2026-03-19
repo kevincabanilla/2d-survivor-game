@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cknmf1mjq10d4" path="res://scenes/ui/gameplay/vignette/Vignette.tscn" id="3_blune"]
 [ext_resource type="PackedScene" uid="uid://b2xapel4u2fnm" path="res://scenes/managers/experience_manager/experience_manager.tscn" id="4_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://duv8fhug314vq" path="res://scenes/managers/upgrade_manager/upgrade_manager.tscn" id="5_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://dve6ifu06glhi" path="res://scenes/ui/player_hud/player_hud.tscn" id="5_th5th"]
 [ext_resource type="PackedScene" uid="uid://do4aonikeuwcw" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="5_yyfjg"]
 
 [node name="Main" type="Node" unique_id=1763922850]
@@ -21,6 +22,8 @@ end_screen_scene = ExtResource("2_ouso4")
 
 [node name="ArenaTimeUI" parent="." unique_id=1480019983 node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6q06x")]
 arena_time_manager = NodePath("../ArenaTimeManager")
+
+[node name="PlayerHud" parent="." unique_id=1986803364 instance=ExtResource("5_th5th")]
 
 [node name="ExperienceBar" parent="." unique_id=138796721 node_paths=PackedStringArray("experience_manager") instance=ExtResource("5_yyfjg")]
 experience_manager = NodePath("../ExperienceManager")

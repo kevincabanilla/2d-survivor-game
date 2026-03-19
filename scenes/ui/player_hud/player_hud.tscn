@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dve6ifu06glhi"]
+
+[ext_resource type="Script" uid="uid://cftyqjwt54oc4" path="res://scenes/ui/player_hud/player_hud.gd" id="1_saegx"]
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=1986803364]
+script = ExtResource("1_saegx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1791933298]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=868046042]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1576251102]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Player Level: 1"
+
+[node name="ExpLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1889825031]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Exp: 90/165"
+
+[node name="UpgradePointsLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1797609135]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = "Upgrade Points: 1,000"

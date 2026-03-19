@@ -25,3 +25,20 @@ func get_player_node() -> Node2D:
 
 func get_foreground_node() -> Node2D:
 	return get_tree().get_first_node_in_group(FOREGROUND_LAYER_GROUP) as Node2D
+
+
+func format_number_with_commas(number: int) -> String:
+	var num_str := str(number).lstrip("-")
+	var result := ""
+	var count: int = 0
+
+	for i in range(num_str.length() - 1, -1, -1):
+		result = num_str[i] + result
+		count += 1
+		if count % 3 == 0 and i != 0:
+			result = "," + result
+
+	if number < 0:
+		result = "-" + result
+
+	return result

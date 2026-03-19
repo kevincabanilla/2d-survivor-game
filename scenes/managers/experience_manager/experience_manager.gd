@@ -58,3 +58,4 @@ func increase_level() -> void:
 	MetaProgression.update_save_data(MetaProgression.TARGET_EXPERIENCE, target_experience)
 	MetaProgression.update_save_data(MetaProgression.CURRENT_LEVEL, current_level)
 	MetaProgression.save()
+	GameEvents.player_leveled_up.emit(current_level)
