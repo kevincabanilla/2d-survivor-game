@@ -1,7 +1,7 @@
 extends Node
 class_name ExperienceManager
 
-const TARGET_EXPERIENCE_GROWTH = 2.0
+const TARGET_EXPERIENCE_GROWTH = 3.0
 
 signal experience_updated(current_experience: float, target_experience: float)
 signal level_up(new_level: int)
@@ -50,8 +50,10 @@ func increase_level() -> void:
 		return
 	current_experience -= target_experience
 	current_level += 1
-	target_experience *= TARGET_EXPERIENCE_GROWTH
+	target_experience += current_level * TARGET_EXPERIENCE_GROWTH
 	level_up.emit(current_level)
+	experience_updated.emit(current_experience, target_experience)
+	#print("New target exp: " + str(target_experience))
 	MetaProgression.update_save_data(MetaProgression.CURRENT_EXPERIENCE, current_experience)
 	MetaProgression.update_save_data(MetaProgression.TARGET_EXPERIENCE, target_experience)
 	MetaProgression.update_save_data(MetaProgression.CURRENT_LEVEL, current_level)
