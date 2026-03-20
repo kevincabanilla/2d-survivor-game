@@ -2,7 +2,7 @@ extends Node
 
 @onready var loot_cooldown_timer: Timer = $LootCooldownTimer
 
-const SPAWN_COOLDOWN_INCREMENT = 5
+const SPAWN_COOLDOWN_INCREMENT = 3
 
 var can_spawn_loot := false
 var spawn_cooldown := 0.0
@@ -43,6 +43,6 @@ func emit_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dicti
 
 func _on_timer_timeout() -> void:
 	can_spawn_loot = true
-	spawn_cooldown = min(spawn_cooldown + SPAWN_COOLDOWN_INCREMENT, 30)
+	spawn_cooldown = min(spawn_cooldown + SPAWN_COOLDOWN_INCREMENT, 15)
 	loot_cooldown_timer.wait_time = spawn_cooldown
 	#print("New spawn cooldown: " + str(spawn_cooldown))

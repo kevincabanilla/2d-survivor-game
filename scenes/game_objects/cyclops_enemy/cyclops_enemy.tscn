@@ -152,7 +152,7 @@ max_health = 15.0
 metadata/_custom_type_script = "uid://b18yf4tuoymwb"
 
 [node name="VialDropComponent" parent="." unique_id=1874638030 node_paths=PackedStringArray("health_component") instance=ExtResource("2_cxyob")]
-drop_percent = 0.4
+drop_percent = 0.3
 exp_value = 3.0
 health_component = NodePath("../HealthComponent")
 
