@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://ep1dedmre5l5"]
+
+[ext_resource type="PackedScene" uid="uid://b52j0kg1glert" path="res://scenes/components/random_audio_player_component/random_audio_player_component.tscn" id="1_cis71"]
+[ext_resource type="Script" uid="uid://odgwu57jcmux" path="res://scenes/game_objects/loot_chest/loot_chest.gd" id="1_k8srk"]
+[ext_resource type="Texture2D" uid="uid://5rfshp463rvk" path="res://assets/environment/tilemap_packed.png" id="1_w2r1v"]
+[ext_resource type="AudioStream" uid="uid://brre7701o212e" path="res://assets/audio/impactWood_medium_000.ogg" id="2_k8srk"]
+[ext_resource type="AudioStream" uid="uid://jvfc4brpygqs" path="res://assets/audio/impactWood_medium_001.ogg" id="3_i7l7t"]
+[ext_resource type="AudioStream" uid="uid://bdfecsxndlgu8" path="res://assets/audio/impactWood_medium_002.ogg" id="4_oumg4"]
+[ext_resource type="AudioStream" uid="uid://bwkt08hft7i4b" path="res://assets/audio/impactWood_medium_003.ogg" id="5_l1w33"]
+[ext_resource type="AudioStream" uid="uid://ptenwro1jllk" path="res://assets/audio/impactWood_medium_004.ogg" id="6_r4lxk"]
+
+[sub_resource type="Animation" id="Animation_k8srk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i7l7t"]
+resource_name = "spawn"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oumg4"]
+_data = {
+&"RESET": SubResource("Animation_k8srk"),
+&"spawn": SubResource("Animation_i7l7t")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c12d4"]
+atlas = ExtResource("1_w2r1v")
+region = Rect2(80, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jfob"]
+atlas = ExtResource("1_w2r1v")
+region = Rect2(96, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnh7x"]
+atlas = ExtResource("1_w2r1v")
+region = Rect2(112, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbhya"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c12d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jfob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnh7x")
+}],
+"loop": false,
+"name": &"open",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cis71"]
+
+[node name="LootChest" type="Node2D" unique_id=1616198236]
+script = ExtResource("1_k8srk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1388256983]
+libraries/ = SubResource("AnimationLibrary_oumg4")
+autoplay = &"spawn"
+
+[node name="RandomAudioPlayerComponent" parent="." unique_id=470792756 instance=ExtResource("1_cis71")]
+streams = Array[AudioStream]([ExtResource("2_k8srk"), ExtResource("3_i7l7t"), ExtResource("4_oumg4"), ExtResource("5_l1w33"), ExtResource("6_r4lxk")])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=666529272]
+sprite_frames = SubResource("SpriteFrames_rbhya")
+animation = &"open"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=342932337]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1518009178]
+shape = SubResource("RectangleShape2D_cis71")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
