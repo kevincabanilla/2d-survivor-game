@@ -19,7 +19,7 @@ func _ready() -> void:
 	#pass
 
 func damage(damageAmount: float) -> void:
-	current_health = max(current_health - damageAmount, 0)
+	current_health = clamp(current_health - damageAmount, 0, max_health)
 	health_changed.emit()
 	Callable(check_death).call_deferred()
 
