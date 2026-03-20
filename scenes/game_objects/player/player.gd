@@ -47,12 +47,15 @@ func _process(_delta: float) -> void:
 		$SpriteVisual.scale.x = -1 # this will flip both sprite and animation horizontally
 	#else:
 		# Not moving horizontally
-		
 
 
-func get_movement_vector():	
+func get_movement_vector() -> Vector2:
+	if Input.is_action_pressed("left_click"):
+		return get_global_mouse_position() - position
+	
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")	
+	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	
 	return Vector2(x_movement, y_movement)
 
 
