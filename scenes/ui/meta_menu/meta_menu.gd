@@ -19,5 +19,13 @@ func _ready() -> void:
 		meta_upgrade_card_instance.set_meta_upgrade(upgrade)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		get_tree().root.set_input_as_handled()
+		_on_back_button_pressed()
+	elif event.is_action_pressed("pause"):
+		get_tree().root.set_input_as_handled()
+
+
 func _on_back_button_pressed() -> void:
 	ScreenTransition.transition_to_main_menu()
