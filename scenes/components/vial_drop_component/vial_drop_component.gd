@@ -1,5 +1,7 @@
 extends Node
 
+const SPAWN_RADIUS = 16
+
 @export_range(0,1) var drop_percent: float = 0.5
 @export var exp_value: float = 1
 @export var health_component: Node
@@ -29,7 +31,8 @@ func on_died():
 	if not owner is Node2D:
 		return
 	
-	var spawn_position = (owner as Node2D).global_position
+	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
+	var spawn_position = (owner as Node2D).global_position + (random_direction * SPAWN_RADIUS)
 	var vial_instance = vial_scene.instantiate() as ExperienceVial
 	vial_instance.exp_value = exp_value
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
