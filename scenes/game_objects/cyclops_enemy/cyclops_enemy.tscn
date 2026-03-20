@@ -157,7 +157,7 @@ exp_value = 3.0
 health_component = NodePath("../HealthComponent")
 
 [node name="LootDropComponent" parent="." unique_id=1073604414 node_paths=PackedStringArray("health_component") instance=ExtResource("5_sqven")]
-loo_chest_scene = ExtResource("6_pkipf")
+loot_chest_scene = ExtResource("6_pkipf")
 health_component = NodePath("../HealthComponent")
 drop_percent = 0.2
 

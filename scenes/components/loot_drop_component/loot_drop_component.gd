@@ -1,12 +1,13 @@
 extends Node
 
-@export var loo_chest_scene: PackedScene
+@export var loot_chest_scene: PackedScene
 @export var health_component: HealthComponent
 @export_range(0,1) var drop_percent: float = 0.01
 
 
 func _ready() -> void:
-	health_component.died.connect(_on_health_component_died)
+	if health_component != null:
+		health_component.died.connect(_on_health_component_died)
 
 
 func get_final_drop_rate() -> float:
@@ -22,7 +23,7 @@ func get_final_drop_rate() -> float:
 
 
 func spawn_chest() -> void:
-	if loo_chest_scene == null || not owner is Node2D:
+	if loot_chest_scene == null || not owner is Node2D:
 		return
 
 	var final_drop_rate = get_final_drop_rate();
@@ -31,12 +32,13 @@ func spawn_chest() -> void:
 		return
 	
 	var spawn_position = (owner as Node2D).global_position
-	var loot_instance: LootChest = loo_chest_scene.instantiate();	
+	var loot_instance: LootChest = loot_chest_scene.instantiate();	
 	var entities_layer = Utils.get_entities_node()
 	if entities_layer == null:
 		owner.get_parent().add_child(loot_instance)
 	else:
 		entities_layer.add_child(loot_instance)
+	
 	loot_instance.global_position = spawn_position
 	GameEvents.start_spawn_loot_cooldown_timer()
 

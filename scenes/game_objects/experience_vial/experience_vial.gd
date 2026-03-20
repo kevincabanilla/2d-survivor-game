@@ -35,6 +35,10 @@ func disable_collision(value: bool) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	var player_pickup_layer := 5
+	if (!area.collision_layer & (1 << (player_pickup_layer - 1))):
+		return
+
 	Callable(disable_collision).call_deferred(true)
 	
 	var tween = create_tween()

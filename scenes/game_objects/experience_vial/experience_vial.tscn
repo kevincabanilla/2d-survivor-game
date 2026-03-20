@@ -82,8 +82,8 @@ script = ExtResource("1_me62k")
 streams = Array[AudioStream]([ExtResource("3_6p3k7"), ExtResource("4_ju1gp"), ExtResource("5_71upg"), ExtResource("6_f4ycc"), ExtResource("7_l4m1t")])
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1524289174]
-collision_layer = 0
-collision_mask = 16
+collision_layer = 32
+collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=348585413]
 shape = SubResource("CircleShape2D_me62k")

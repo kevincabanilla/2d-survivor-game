@@ -31,7 +31,7 @@ func get_spawn_position() -> Vector2:
 	for i in 4:
 		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
 		
-		var query_params = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1 << 0) # 1 << 0 is the collision mask bit value
+		var query_params = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1 << 0) # 1 << 0 is the collision mask bit
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_params)
 		
 		if result.is_empty():
