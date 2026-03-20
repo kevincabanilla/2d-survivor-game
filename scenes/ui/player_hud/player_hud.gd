@@ -13,7 +13,8 @@ func _ready() -> void:
 
 func update_ui() -> void:
 	level_label.text = "Curent Level: " + str(MetaProgression.get_meta_data(MetaProgression.CURRENT_LEVEL, 1))
-	exp_label.text = "Exp: %d/%d" % [MetaProgression.get_meta_data(MetaProgression.CURRENT_EXPERIENCE, 0), MetaProgression.get_meta_data(MetaProgression.TARGET_EXPERIENCE, 1)]
+	exp_label.text = "Exp: %s/%s" % [Utils.format_number_with_commas(MetaProgression.get_meta_data(MetaProgression.CURRENT_EXPERIENCE, 0)),
+		Utils.format_number_with_commas(MetaProgression.get_meta_data(MetaProgression.TARGET_EXPERIENCE, 1))]
 	upgrade_points_label.text = "Upgrade Points: %s" % Utils.format_number_with_commas(MetaProgression.get_meta_data(MetaProgression.EXPERIENCE_POINTS, 0))
 
 #func _on_game_events_player_leveled_up(_new_level: int) -> void:

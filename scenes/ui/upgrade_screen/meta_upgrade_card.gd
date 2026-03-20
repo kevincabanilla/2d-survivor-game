@@ -28,7 +28,7 @@ func update_ui() -> void:
 	var current_exp :=  MetaProgression.get_exp_points()
 	var percent = max(current_exp as float / _upgrade.experience_cost, 0.01)
 	progress_bar.value = percent
-	progress_bar_label.text = "%d/%d" % [current_exp, _upgrade.experience_cost]
+	progress_bar_label.text = "%s/%s" % [Utils.format_number_with_commas(current_exp), Utils.format_number_with_commas(_upgrade.experience_cost)]
 	
 	var upgrade_save_data = MetaProgression.get_meta_upgrade_save_data(_upgrade.id)
 	if (!upgrade_save_data.is_empty()):
@@ -39,7 +39,7 @@ func update_ui() -> void:
 		if is_maxed:
 			purchase_button.text = "Max"
 		
-		current_value_label.text = "+%d%%" % ((upgrade_save_data["value"] * upgrade_save_data["quantity"]) * 100)
+		current_value_label.text = "+%s%%" % Utils.format_number_with_commas(((upgrade_save_data["value"] * upgrade_save_data["quantity"]) * 100))
 	else:
 		purchase_button.disabled = percent < 1
 		upgrade_count_label.text = "x0"
