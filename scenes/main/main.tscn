@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://duv8fhug314vq" path="res://scenes/managers/upgrade_manager/upgrade_manager.tscn" id="5_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://dve6ifu06glhi" path="res://scenes/ui/player_hud/player_hud.tscn" id="5_th5th"]
 [ext_resource type="PackedScene" uid="uid://do4aonikeuwcw" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="5_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://ep1dedmre5l5" path="res://scenes/game_objects/loot_chest/loot_chest.tscn" id="14_7smn1"]
 
 [node name="Main" type="Node" unique_id=1763922850]
 script = ExtResource("1_a8run")
@@ -36,8 +37,7 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperienceManager" parent="." unique_id=1898650238 instance=ExtResource("4_yyfjg")]
 
-[node name="UpgradeManager" parent="." unique_id=1553397390 node_paths=PackedStringArray("experince_manager") instance=ExtResource("5_b1x3f")]
-experince_manager = NodePath("../ExperienceManager")
+[node name="UpgradeManager" parent="." unique_id=1553397390 instance=ExtResource("5_b1x3f")]
 
 [node name="GameCamera" parent="." unique_id=37733669 instance=ExtResource("1_k2fmo")]
 
@@ -52,5 +52,8 @@ y_sort_enabled = true
 [node name="Player" parent="Entities" unique_id=2122379676 instance=ExtResource("1_hyk8p")]
 unique_name_in_owner = true
 position = Vector2(307, 201)
+
+[node name="LootChest" parent="Entities" unique_id=1616198236 instance=ExtResource("14_7smn1")]
+position = Vector2(194, 146)
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1568161724 groups=["foreground_layer"]]

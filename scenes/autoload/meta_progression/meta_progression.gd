@@ -13,6 +13,7 @@ const EXPERIENCE_POINTS = "meta_upgrade_currency"
 # Meta Upgrades
 const UPGRADE_EXPERIENCE_GAIN = "experience_gain"
 const UPGRADE_EXP_VIAL_DROP_RATE = "exp_vial_drop_rate"
+const UPGRADE_LOOT_DROP_RATE = "loot_drop_rate"
 
 var save_data := {
 	"current_level": 0,

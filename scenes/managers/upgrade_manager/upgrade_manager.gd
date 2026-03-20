@@ -1,7 +1,7 @@
 extends Node
 
 #@export var upgrade_pool: Array[AbilityUpgrade]
-@export var experince_manager: ExperienceManager
+#@export var experince_manager: ExperienceManager
 @export var upgrade_screen_scene: PackedScene
 
 var current_upgrades = {}
@@ -16,7 +16,8 @@ var upgrade_attack_speed = preload("res://resources/upgrades/attack_speed.tres")
 
 
 func _ready() -> void:
-	experince_manager.level_up.connect(on_level_up)
+	#experince_manager.level_up.connect(on_level_up)
+	GameEvents.loot_chest_collected.connect(_on_game_events_loot_chest_collected)
 	
 	upgrade_pool.add_items([ability_axe, upgrade_sword_damage, upgrade_attack_speed], 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
@@ -74,7 +75,8 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 	return chosen_upgrades
 
 
-func on_level_up(level: int) -> void:
+#func on_level_up(level: int) -> void:
+func _on_game_events_loot_chest_collected() -> void:
 	var upgrade_screen_instance = upgrade_screen_scene.instantiate() as UpgradeScreen
 	add_child(upgrade_screen_instance)
 	var chosen_upgrades := pick_upgrades_new()

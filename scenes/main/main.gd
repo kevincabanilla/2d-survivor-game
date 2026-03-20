@@ -6,7 +6,11 @@ var pause_menu_scene = preload("res://scenes/ui/pause_menu/pause_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameEvents.initialize_cooldown_timer()
 	%Player.health_component.died.connect(on_player_died)
+	
+	if (!OS.is_debug_build()):
+		$Entities/LootChest.queue_free()
 
 
 func _unhandled_input(event: InputEvent) -> void:

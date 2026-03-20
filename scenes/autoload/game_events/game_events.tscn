@@ -4,3 +4,5 @@
 
 [node name="GameEvents" type="Node" unique_id=781046630]
 script = ExtResource("1_sjmfu")
+
+[node name="LootCooldownTimer" type="Timer" parent="." unique_id=236361268]
