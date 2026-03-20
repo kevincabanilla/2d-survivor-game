@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var movement_vector = get_movement_vector()
 	var direction = movement_vector.normalized()
 	velocity_component.accelerate_in_direction(direction)
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	if movement_vector != Vector2.ZERO:
 		animation_player.play("walk_animation")
 	else:
-		animation_player.play("RESET")
+		animation_player.play("idle")
 	
 	if velocity.x > 0:
 		# Moving to right
