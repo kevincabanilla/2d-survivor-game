@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 func _initialize() -> void:
-	window_mode_option_button.selected = DisplayServer.window_get_mode()
+	window_mode_option_button.select(window_mode_option_button.get_item_index(DisplayServer.window_get_mode()))
 	master_vol_slider.value = get_bus_volume_percent("Master")
 	sfx_slider.value = get_bus_volume_percent("SFX")
 	music_slider.value = get_bus_volume_percent("Music")
@@ -68,6 +68,7 @@ func update_volumes() -> void:
 func _on_window_mode_option_button_item_selected(index: int) -> void:
 	var selected_mode = window_mode_option_button.get_item_id(index)
 	DisplayServer.window_set_mode(selected_mode)
+	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, selected_mode == DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 #func _on_window_mode_check_box_toggled(toggled_on: bool) -> void:
