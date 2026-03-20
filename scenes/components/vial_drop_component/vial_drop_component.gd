@@ -10,6 +10,8 @@ func _ready() -> void:
 	(health_component as HealthComponent).died.connect(on_died)
 
 func on_died():
+	GameEvents.increase_exp.emit(exp_value)
+	
 	var adjusted_drop_percent = drop_percent
 	var exp_upgrade = MetaProgression.get_meta_upgrade_save_data(MetaProgression.UPGRADE_EXP_VIAL_DROP_RATE)
 	

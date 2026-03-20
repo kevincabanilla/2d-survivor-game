@@ -26,7 +26,7 @@ func collecct() -> void:
 	visible = false
 	$RandomAudioPlayerComponent.play_random()
 	await $RandomAudioPlayerComponent.finished
-	GameEvents.emit_experience_vial_collected(exp_value)
+	GameEvents.emit_vial_points_collected(exp_value)
 	queue_free()
 
 

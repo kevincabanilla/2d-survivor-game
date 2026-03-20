@@ -30,7 +30,7 @@ signal save_data_updated(save_data: Dictionary)
 
 func _ready() -> void:
 	load_save_file()
-	GameEvents.experience_vial_collected.connect(_on_experience_collected)
+	GameEvents.vial_points_collected.connect(_on_game_events_vial_points_collected)
 	#add_meta_upgrade(load("res://resources/meta_upgrades/experience_gain.tres"))
 
 
@@ -100,5 +100,5 @@ func get_meta_upgrade_save_data(meta_upgrade_id: String) -> Dictionary:
 		return {}
 
 
-func _on_experience_collected(number: float) -> void:
+func _on_game_events_vial_points_collected(number: float) -> void:
 	save_data["meta_upgrade_currency"] += round(number)

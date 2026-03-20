@@ -12,7 +12,7 @@ var target_experience := 2.0
 
 func _ready() -> void:
 	load_save_data()
-	GameEvents.experience_vial_collected.connect(on_experience_vial_collected)
+	GameEvents.increase_exp.connect(_on_game_events_increase_exp)
 
 
 func load_save_data() -> void:
@@ -22,8 +22,9 @@ func load_save_data() -> void:
 	experience_updated.emit(current_experience, target_experience)
 
 
-func on_experience_vial_collected(number: float) -> void:
-	increment_experience(number)
+func _on_game_events_increase_exp(exp_val: float) -> void:
+	increment_experience(exp_val)
+
 
 func increment_experience(number: float) -> void:
 	var exp_multiplier = 1.0
