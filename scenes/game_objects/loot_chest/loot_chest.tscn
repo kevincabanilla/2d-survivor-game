@@ -82,6 +82,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cis71"]
+size = Vector2(25, 25)
 
 [node name="LootChest" type="Node2D" unique_id=1616198236]
 script = ExtResource("1_k8srk")
@@ -94,12 +95,13 @@ autoplay = &"spawn"
 streams = Array[AudioStream]([ExtResource("2_k8srk"), ExtResource("3_i7l7t"), ExtResource("4_oumg4"), ExtResource("5_l1w33"), ExtResource("6_r4lxk")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=666529272]
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_rbhya")
 animation = &"open"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=342932337]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1518009178]
 shape = SubResource("RectangleShape2D_cis71")
