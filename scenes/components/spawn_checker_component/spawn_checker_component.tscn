@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://deyug2pkjx1e6"]
+
+[ext_resource type="Script" uid="uid://cwlc668i07md7" path="res://scenes/components/spawn_checker_component/spawn_checker_component.gd" id="1_i7ksv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ksv"]
+size = Vector2(27, 27)
+
+[node name="SpawnCheckerComponent" type="Node2D" unique_id=489770374]
+script = ExtResource("1_i7ksv")
+
+[node name="SpawnCheckerArea" type="Area2D" parent="." unique_id=1332840300]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnCheckerArea" unique_id=2065542401]
+shape = SubResource("RectangleShape2D_i7ksv")

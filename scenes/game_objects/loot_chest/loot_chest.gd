@@ -1,7 +1,7 @@
 class_name LootChest extends Node2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var area_2d: Area2D = $Area2D
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
